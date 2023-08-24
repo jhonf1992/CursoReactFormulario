@@ -1,6 +1,6 @@
 import "./ListaOpciones.css"
 
-const ListaOpciones = () =>{
+const ListaOpciones = (props) =>{
 
     // Vamos a iterar con el metodo Map NO con ForEach
     // Estructura del metodo Map => arreglo.map((equipo, index) => {
@@ -15,12 +15,17 @@ const ListaOpciones = () =>{
         "Movil",
         "Innovación y Gestión"
     ]
+
+    const manejarCambio = (e) =>{
+        props.actualizarEquipo(e.target.value);
+    }
     return(
         <div className='lista-opciones'>
             <label>Equipos</label>
-            <select >
+            <select value={props.valor} onChange={manejarCambio}>
+                <option value="" disabled defaultValue="" hidden>Seleccionar equipo</option>
                 { equipos.map((equipo, index)=>{
-                    return <option key={index}>{equipo}</option>  // Retornamos una Etiqueta select con varias opciones
+                    return <option key={index} value={equipo}>{equipo}</option>  // Retornamos una Etiqueta select con varias opciones
                 })}
             </select>
         </div>
