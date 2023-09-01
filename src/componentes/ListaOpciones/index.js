@@ -6,15 +6,15 @@ const ListaOpciones = (props) =>{
     // Estructura del metodo Map => arreglo.map((equipo, index) => {
     // return <option></option>
     //})
-    const equipos = [// Creamos el arreglo con los datos de las opciones que tendremos
-        "Programación",
-        "Front-End",
-        "Data Science",
-        "Devops",
-        "UX y Diseño",
-        "Movil",
-        "Innovación y Gestión"
-    ]
+    // const equipos = [// Creamos el arreglo con los datos de las opciones que tendremos
+    //     "Programación",
+    //     "Front-End",
+    //     "Data Science",
+    //     "Devops",
+    //     "UX y Diseño",
+    //     "Movil",
+    //     "Innovación y Gestión"
+    // ]
 
     const manejarCambio = (e) =>{
         props.actualizarEquipo(e.target.value);
@@ -24,7 +24,7 @@ const ListaOpciones = (props) =>{
             <label>Equipos</label>
             <select value={props.valor} onChange={manejarCambio}>
                 <option value="" disabled defaultValue="" hidden>Seleccionar equipo</option>
-                { equipos.map((equipo, index)=>{
+                { props.equipos.map((equipo, index)=>{
                     return <option key={index} value={equipo}>{equipo}</option>  // Retornamos una Etiqueta select con varias opciones
                 })}
             </select>
